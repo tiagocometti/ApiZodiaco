@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using AstrologiaAPI.Models;
 using AstrologiaAPI.Logic;
+using AstrologiaAPI.Utils;
+using AstrologiaAPI.Models;
 
 namespace AstrologiaAPI.Controllers
 {
@@ -9,20 +10,24 @@ namespace AstrologiaAPI.Controllers
     public class AutenticacaoController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Autenticar([FromBody] Usuario usuario)
+        public IActionResult Autenticar([FromBody] LoginRequest credenciais)
         {
-            var usuarioAutenticado = AutenticacaoLogic.Autenticar(usuario.Nickname, usuario.Senha);
+            var resultado = AutenticacaoLogic.Autenticar(credenciais.Nickname, credenciais.Senha);
 
-            if (usuarioAutenticado == null)
-                return Unauthorized("Credenciais inválidas");
+            if (!resultado.Sucesso)
+                return BadRequest(new { erro = resultado.Mensagem });
+
+            var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
 
             return Ok(new
             {
-                Nickname = usuarioAutenticado.Nickname,
-                Plano = usuarioAutenticado.Plano
+                token,
+                nickname = resultado.Login.Nickname,
+                nome = resultado.Usuario.Nome,
+                plano = resultado.Usuario.Plano,
+                nascimento = resultado.Usuario.DataNascimento
             });
         }
+
     }
-
-
 }

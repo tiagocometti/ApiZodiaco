@@ -1,10 +1,10 @@
 ﻿namespace AstrologiaAPI.Models
 {
-    public class Usuario
+    public class UsuarioEntity
     {
-        public string Nickname { get; set; }
-        public string Senha { get; set; }
+        public Guid LoginId { get; set; } 
         public string Plano { get; set; }
         public DateTime DataNascimento { get; set; }
+        public string Nome { get; set; }
     }
 }

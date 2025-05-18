@@ -1,10 +1,8 @@
 ﻿namespace AstrologiaAPI.Models
 {
-    public class Usuario
+    public class LoginRequest
     {
         public string Nickname { get; set; }
         public string Senha { get; set; }
-        public string Plano { get; set; }
-        public DateTime DataNascimento { get; set; }
     }
 }
