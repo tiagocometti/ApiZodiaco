@@ -1,4 +1,4 @@
-﻿namespace AstrologiaAPI.Models
+﻿namespace ApiZodiaco.Models.Request
 {
     public class LoginRequest
     {

@@ -1,6 +1,8 @@
-﻿namespace AstrologiaAPI.Models
+﻿using AstrologiaAPI.Models;
+
+namespace ApiZodiaco.Models.Response
 {
-    public class ResultadoAutenticacao
+    public class RespostaEntity
     {
         public bool Sucesso { get; set; }
         public string Mensagem { get; set; }

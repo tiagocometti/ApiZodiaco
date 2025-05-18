@@ -4,6 +4,7 @@
     {
         public Guid LoginId { get; set; } 
         public string Plano { get; set; }
+        public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Nome { get; set; }
     }
