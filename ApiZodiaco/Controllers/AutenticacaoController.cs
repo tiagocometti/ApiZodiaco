@@ -46,8 +46,9 @@ namespace AstrologiaAPI.Controllers
                 nickname = resultado.Login.Nickname,
                 nome = resultado.Usuario.Nome,
                 plano = resultado.Usuario.Plano,
-                nascimento = resultado.Usuario.DataNascimento
+                nascimento = resultado.Usuario.DataNascimento,
             });
+
         }
 
 

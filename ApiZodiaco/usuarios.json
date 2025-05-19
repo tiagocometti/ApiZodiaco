@@ -1,44 +1,65 @@
 ﻿[
   {
     "LoginId": "3d77117e-fdb3-47e6-a3ec-77c1cf46dc7b",
-    "Plano": "",
+    "Nome": "Tiago Cometti Lombardi",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "2000-03-29T22:56:19.236Z",
-    "Nome": "Tiago Cometti Lombardi"
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
   },
   {
     "LoginId": "055c318f-51ce-4374-b99e-44f2e06e4aec",
-    "Plano": "",
+    "Nome": "Tiago Cometti Lombardi",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "2000-03-29T22:56:19.236Z",
-    "Nome": "Tiago Cometti Lombardi"
+    "PagamentoConfirmado": true,
+    "CodigoPix": "0002012636BR.GOV.BCB.PIX0114\u002B55819999999952040000530398654019,905802BR59022Tiago Cometti Lombardi6009SAO PAULO62070503***6304af8c4f78"
   },
   {
     "LoginId": "7f2533d1-eb06-4703-a65e-a2e7724cc152",
-    "Plano": "",
+    "Nome": "dsadas",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "0001-01-01T00:00:00",
-    "Nome": "dsadas"
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
   },
   {
     "LoginId": "41c83dc3-8d87-4f46-beef-a7821f147bd4",
-    "Plano": "",
+    "Nome": "qweqwe",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "0001-01-01T00:00:00",
-    "Nome": "qweqwe"
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
   },
   {
     "LoginId": "89573e79-7930-4b39-963d-91637a24f113",
-    "Plano": "",
+    "Nome": "asdasd",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "0001-01-01T00:00:00",
-    "Nome": "asdasd"
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
   },
   {
     "LoginId": "35c4d066-dcce-4df0-bdfa-7cf9fdbddbd9",
-    "Plano": "",
+    "Nome": "pedro",
     "Email": null,
+    "Plano": "",
     "DataNascimento": "0001-01-01T00:00:00",
-    "Nome": "pedro"
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
+  },
+  {
+    "LoginId": "c5a4cfb7-729f-44ee-ad9d-8a258dca61f2",
+    "Nome": "dasdasda",
+    "Email": null,
+    "Plano": "",
+    "DataNascimento": "0001-01-01T00:00:00",
+    "PagamentoConfirmado": false,
+    "CodigoPix": ""
   }
 ]

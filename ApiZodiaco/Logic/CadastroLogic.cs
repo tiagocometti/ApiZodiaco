@@ -12,14 +12,16 @@ namespace AstrologiaAPI.Logic
             if (string.IsNullOrWhiteSpace(request.Nickname) ||
                 string.IsNullOrWhiteSpace(request.Senha) ||
                 string.IsNullOrWhiteSpace(request.Nome) ||
-                string.IsNullOrWhiteSpace(request.Email))
+                string.IsNullOrWhiteSpace(request.Email) ||
+                string.IsNullOrWhiteSpace(request.Plano))
             {
                 return new RespostaEntity
                 {
                     Sucesso = false,
-                    Mensagem = "Nickname, senha, nome e e-mail são obrigatórios."
+                    Mensagem = "Todos os campos são obrigatórios."
                 };
             }
+
 
 
             if (UsuarioDb.Logins.Any(l => l.Nickname == request.Nickname))
@@ -41,9 +43,11 @@ namespace AstrologiaAPI.Logic
             {
                 LoginId = novoLogin.Id,
                 Nome = request.Nome,
-                Plano = request.Plano ?? "",
+                Email = request.Email,
+                Plano = request.Plano,
                 DataNascimento = request.DataNascimento
             };
+
 
             UsuarioDb.Logins.Add(novoLogin);
             UsuarioDb.Usuarios.Add(novoUsuario);
