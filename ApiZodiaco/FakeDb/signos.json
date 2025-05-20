@@ -1,0 +1,86 @@
+[
+  {
+    "id": "aries",
+    "nome": "Áries",
+    "elemento": "Fogo",
+    "inicio": "03-21",
+    "fim": "04-20"
+  },
+  {
+    "id": "taurus",
+    "nome": "Touro",
+    "elemento": "Terra",
+    "inicio": "04-21",
+    "fim": "05-20"
+  },
+  {
+    "id": "gemini",
+    "nome": "Gêmeos",
+    "elemento": "Ar",
+    "inicio": "05-21",
+    "fim": "06-20"
+  },
+  {
+    "id": "cancer",
+    "nome": "Câncer",
+    "elemento": "Água",
+    "inicio": "06-21",
+    "fim": "07-22"
+  },
+  {
+    "id": "leo",
+    "nome": "Leão",
+    "elemento": "Fogo",
+    "inicio": "07-23",
+    "fim": "08-22"
+  },
+  {
+    "id": "virgo",
+    "nome": "Virgem",
+    "elemento": "Terra",
+    "inicio": "08-23",
+    "fim": "09-22"
+  },
+  {
+    "id": "libra",
+    "nome": "Libra",
+    "elemento": "Ar",
+    "inicio": "09-23",
+    "fim": "10-22"
+  },
+  {
+    "id": "scorpio",
+    "nome": "Escorpião",
+    "elemento": "Água",
+    "inicio": "10-23",
+    "fim": "11-21"
+  },
+  {
+    "id": "sagittarius",
+    "nome": "Sagitário",
+    "elemento": "Fogo",
+    "inicio": "11-22",
+    "fim": "12-21"
+  },
+  {
+    "id": "capricorn",
+    "nome": "Capricórnio",
+    "elemento": "Terra",
+    "inicio": "12-22",
+    "fim": "01-19"
+  },
+  {
+    "id": "aquarius",
+    "nome": "Aquário",
+    "elemento": "Ar",
+    "inicio": "01-20",
+    "fim": "02-18"
+  },
+  {
+    "id": "pisces",
+    "nome": "Peixes",
+    "elemento": "Água",
+    "inicio": "02-19",
+    "fim": "03-20"
+  }
+]

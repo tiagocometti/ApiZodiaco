@@ -13,44 +13,57 @@ namespace AstrologiaAPI.Controllers
         [HttpPost]
         public IActionResult Autenticar([FromBody] LoginRequest credenciais)
         {
-            var resultado = AutenticacaoLogic.Autenticar(credenciais.Nickname, credenciais.Senha);
-
-            if (!resultado.Sucesso)
-                return BadRequest(new { erro = resultado.Mensagem });
-
-            var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
-
-            return Ok(new
+            try
             {
-                token,
-                nickname = resultado.Login.Nickname,
-                nome = resultado.Usuario.Nome,
-                plano = resultado.Usuario.Plano,
-                nascimento = resultado.Usuario.DataNascimento
-            });
+                var resultado = AutenticacaoLogic.Autenticar(credenciais.Nickname, credenciais.Senha);
+
+                if (!resultado.Sucesso)
+                    return BadRequest(new { erro = resultado.Mensagem });
+
+                var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
+
+                return Ok(new
+                {
+                    token,
+                    nickname = resultado.Login.Nickname,
+                    nome = resultado.Usuario.Nome,
+                    plano = resultado.Usuario.Plano,
+                    nascimento = resultado.Usuario.DataNascimento
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro interno na autenticação: {ex.Message}");
+                return StatusCode(500, new { erro = "Erro interno ao autenticar." });
+            }
         }
 
         [HttpPost("cadastro")]
         public IActionResult Cadastrar([FromBody] CadastroRequest request)
         {
-            var resultado = CadastroLogic.Cadastrar(request);
-
-            if (!resultado.Sucesso)
-                return BadRequest(new { erro = resultado.Mensagem });
-
-            var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
-
-            return Ok(new
+            try
             {
-                token,
-                nickname = resultado.Login.Nickname,
-                nome = resultado.Usuario.Nome,
-                plano = resultado.Usuario.Plano,
-                nascimento = resultado.Usuario.DataNascimento,
-            });
+                var resultado = CadastroLogic.Cadastrar(request);
 
+                if (!resultado.Sucesso)
+                    return BadRequest(new { erro = resultado.Mensagem });
+
+                var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
+
+                return Ok(new
+                {
+                    token,
+                    nickname = resultado.Login.Nickname,
+                    nome = resultado.Usuario.Nome,
+                    plano = resultado.Usuario.Plano,
+                    nascimento = resultado.Usuario.DataNascimento,
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro interno no cadastro: {ex.Message}");
+                return StatusCode(500, new { erro = "Erro interno ao realizar cadastro." });
+            }
         }
-
-
     }
 }

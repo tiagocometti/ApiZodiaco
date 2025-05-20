@@ -1,0 +1,34 @@
+﻿[
+  {
+    "LoginId": "54cfdfb6-1c81-4da5-90ba-5b091873971c",
+    "Nome": "Tiago Cometti",
+    "Email": "tiagocometti186@gmail.com",
+    "Plano": "Basico",
+    "Signo": "",
+    "DataNascimento": "2000-03-29T00:00:00"
+  },
+  {
+    "LoginId": "6d274995-9a79-4224-972a-094c62db319f",
+    "Nome": "Tiago Cometti Lombardi",
+    "Email": "tiagocometti186@gmail.com",
+    "Plano": "Avan\u00E7ado",
+    "Signo": "aries",
+    "DataNascimento": "2000-03-29T00:00:00"
+  },
+  {
+    "LoginId": "43b144ea-f15d-4c76-9dff-71fae0856dda",
+    "Nome": "joao",
+    "Email": "joao@gmail.com",
+    "Plano": "Avan\u00E7ado",
+    "Signo": "capricorn",
+    "DataNascimento": "2000-01-01T00:00:00"
+  },
+  {
+    "LoginId": "b1643942-8e8d-4310-9a00-39b5d97c365c",
+    "Nome": "joao",
+    "Email": "joao@gmail.com",
+    "Plano": "Avan\u00E7ado",
+    "Signo": "capricorn",
+    "DataNascimento": "2000-01-01T00:00:00"
+  }
+]

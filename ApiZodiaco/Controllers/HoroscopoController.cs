@@ -18,12 +18,20 @@ namespace AstrologiaAPI.Controllers
         [HttpGet("{nickname}")]
         public async Task<IActionResult> ObterHoroscopo(string nickname)
         {
-            var resultado = await HoroscopoLogic.ObterHoroscopo(nickname, _config["ApiNinjasKey"]);
+            try
+            {
+                var resultado = await HoroscopoLogic.ObterHoroscopo(nickname, _config["ApiNinjasKey"]);
 
-            if (resultado == null)
-                return NotFound(new { erro = "Não foi possível obter o horóscopo." });
+                if (resultado == null)
+                    return NotFound(new { erro = "Não foi possível obter o horóscopo." });
 
-            return Ok(resultado);
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao obter horóscopo: {ex.Message}");
+                return StatusCode(500, new { erro = "Erro interno ao processar o horóscopo." });
+            }
         }
     }
 }
