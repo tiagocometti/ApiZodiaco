@@ -1,4 +1,5 @@
 ﻿using AstrologiaAPI.Models;
+using System.Text;
 using System.Text.Json;
 
 namespace AstrologiaAPI.Utils
@@ -13,7 +14,7 @@ namespace AstrologiaAPI.Utils
             {
                 try
                 {
-                    var json = File.ReadAllText("FakeDb/signos.json");
+                    var json = File.ReadAllText("FakeDb/signos.json", Encoding.UTF8);
                     _signos = JsonSerializer.Deserialize<List<SignoEntity>>(json, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true

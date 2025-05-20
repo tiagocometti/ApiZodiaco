@@ -3,6 +3,7 @@ using AstrologiaAPI.Logic;
 using AstrologiaAPI.Utils;
 using ApiZodiaco.Models.Request;
 using AstrologiaAPI.Models;
+using ApiZodiaco.Models.Response;
 
 namespace AstrologiaAPI.Controllers
 {
@@ -18,7 +19,7 @@ namespace AstrologiaAPI.Controllers
                 var resultado = AutenticacaoLogic.Autenticar(credenciais.Nickname, credenciais.Senha);
 
                 if (!resultado.Sucesso)
-                    return BadRequest(new { erro = resultado.Mensagem });
+                    return BadRequest(resultado);
 
                 var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
 
@@ -34,35 +35,11 @@ namespace AstrologiaAPI.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine($"Erro interno na autenticação: {ex.Message}");
-                return StatusCode(500, new { erro = "Erro interno ao autenticar." });
-            }
-        }
-
-        [HttpPost("cadastro")]
-        public IActionResult Cadastrar([FromBody] CadastroRequest request)
-        {
-            try
-            {
-                var resultado = CadastroLogic.Cadastrar(request);
-
-                if (!resultado.Sucesso)
-                    return BadRequest(new { erro = resultado.Mensagem });
-
-                var token = JwtUtils.GerarToken(resultado.Login.Nickname, resultado.Usuario.Plano);
-
-                return Ok(new
+                return BadRequest(new RespostaEntity
                 {
-                    token,
-                    nickname = resultado.Login.Nickname,
-                    nome = resultado.Usuario.Nome,
-                    plano = resultado.Usuario.Plano,
-                    nascimento = resultado.Usuario.DataNascimento,
+                    Sucesso = false,
+                    Mensagem = "Erro interno ao autenticar."
                 });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro interno no cadastro: {ex.Message}");
-                return StatusCode(500, new { erro = "Erro interno ao realizar cadastro." });
             }
         }
     }

@@ -1,7 +1,7 @@
 [
   {
     "id": "aries",
-    "nome": "¡ries",
+    "nome": "√Åries",
     "elemento": "Fogo",
     "inicio": "03-21",
     "fim": "04-20"
@@ -15,21 +15,21 @@
   },
   {
     "id": "gemini",
-    "nome": "GÍmeos",
+    "nome": "G√™meos",
     "elemento": "Ar",
     "inicio": "05-21",
     "fim": "06-20"
   },
   {
     "id": "cancer",
-    "nome": "C‚ncer",
-    "elemento": "¡gua",
+    "nome": "C√¢ncer",
+    "elemento": "√Ågua",
     "inicio": "06-21",
     "fim": "07-22"
   },
   {
     "id": "leo",
-    "nome": "Le„o",
+    "nome": "Le√£o",
     "elemento": "Fogo",
     "inicio": "07-23",
     "fim": "08-22"
@@ -50,28 +50,28 @@
   },
   {
     "id": "scorpio",
-    "nome": "Escorpi„o",
-    "elemento": "¡gua",
+    "nome": "Escorpi√£o",
+    "elemento": "√Ågua",
     "inicio": "10-23",
     "fim": "11-21"
   },
   {
     "id": "sagittarius",
-    "nome": "Sagit·rio",
+    "nome": "Sagit√°rio",
     "elemento": "Fogo",
     "inicio": "11-22",
     "fim": "12-21"
   },
   {
     "id": "capricorn",
-    "nome": "CapricÛrnio",
+    "nome": "Capric√≥rnio",
     "elemento": "Terra",
     "inicio": "12-22",
     "fim": "01-19"
   },
   {
     "id": "aquarius",
-    "nome": "Aqu·rio",
+    "nome": "Aqu√°rio",
     "elemento": "Ar",
     "inicio": "01-20",
     "fim": "02-18"
@@ -79,7 +79,7 @@
   {
     "id": "pisces",
     "nome": "Peixes",
-    "elemento": "¡gua",
+    "elemento": "√Ågua",
     "inicio": "02-19",
     "fim": "03-20"
   }
