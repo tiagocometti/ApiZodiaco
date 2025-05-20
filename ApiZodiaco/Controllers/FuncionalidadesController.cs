@@ -140,5 +140,44 @@ namespace AstrologiaAPI.Controllers
                 });
             }
         }
+
+        [Authorize]
+        [HttpGet("bicho/{nickname}")]
+        public IActionResult ObterBichoDoDia(string nickname)
+        {
+            try
+            {
+                var plano = User.FindFirst("plano")?.Value;
+
+                if (plano != "Avançado")
+                    return StatusCode(403, new RespostaEntity
+                    {
+                        Sucesso = false,
+                        Mensagem = "Esta funcionalidade é exclusiva para usuários do plano Avançado."
+                    });
+
+                var login = UsuarioDb.Logins.FirstOrDefault(l => l.Nickname == nickname);
+                if (login == null)
+                    return NotFound(new RespostaEntity { Sucesso = false, Mensagem = "Usuário não encontrado." });
+
+                var (numero, animal) = BichoLogic.ObterBichoDoDia(nickname);
+
+                return Ok(new
+                {
+                    numero,
+                    animal
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao obter bicho do dia: {ex.Message}");
+                return BadRequest(new RespostaEntity
+                {
+                    Sucesso = false,
+                    Mensagem = "Erro interno ao gerar o bicho do dia."
+                });
+            }
+        }
+
     }
 }
