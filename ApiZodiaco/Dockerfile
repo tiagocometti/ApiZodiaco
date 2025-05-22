@@ -1,30 +1,23 @@
-# Acesse https://aka.ms/customizecontainer para saber como personalizar seu cont√™iner de depura√ß√£o e como o Visual Studio usa este Dockerfile para criar suas imagens para uma depura√ß√£o mais r√°pida.
+# Acesse https://aka.ms/customizecontainer para saber como personalizar seu contÍiner de depuraÁ„o e como o Visual Studio usa este Dockerfile para criar suas imagens para uma depuraÁ„o mais r·pida.
 
-# Esta fase √© usada durante a execu√ß√£o no VS no modo r√°pido (Padr√£o para a configura√ß√£o de Depura√ß√£o)
+# Esta fase È usada durante a execuÁ„o no VS no modo r·pido (Padr„o para a configuraÁ„o de DepuraÁ„o)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
-# Esta fase √© usada para compilar o projeto de servi√ßo
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["ApiZodiaco/ApiZodiaco.csproj", "ApiZodiaco/"]
-RUN dotnet restore "./ApiZodiaco/ApiZodiaco.csproj"
 COPY . .
-WORKDIR "/src/ApiZodiaco"
-RUN dotnet build "./ApiZodiaco.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
 
-# Esta fase √© usada para publicar o projeto de servi√ßo a ser copiado para a fase final
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ApiZodiaco.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-# Esta fase √© usada na produ√ß√£o ou quando executada no VS no modo normal (padr√£o quando n√£o est√° usando a configura√ß√£o de Depura√ß√£o)
+# Esta fase È usada na produÁ„o ou quando executada no VS no modo normal (padr„o quando n„o est· usando a configuraÁ„o de DepuraÁ„o)
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/out .
+
+# Porta da aplicaÁ„o
+EXPOSE 8080
+
+# Comando para rodar sua API
 ENTRYPOINT ["dotnet", "ApiZodiaco.dll"]
