@@ -58,6 +58,7 @@ namespace AstrologiaAPI.Controllers
                     mensagem = resultado.Mensagem,
                     nickname = resultado.Login.Nickname,
                     nome = resultado.Usuario.Nome,
+                    email = resultado.Usuario.Email,
                     plano = resultado.Usuario.Plano,
                     nascimento = resultado.Usuario.DataNascimento
                 });
@@ -129,5 +130,52 @@ namespace AstrologiaAPI.Controllers
                 });
             }
         }
+
+        [HttpGet("renovar/{nickname}")]
+        public IActionResult RenovarToken(string nickname)
+        {
+            try
+            {
+                var login = UsuarioDb.Logins.FirstOrDefault(l => l.Nickname == nickname);
+                if (login == null)
+                {
+                    return NotFound(new RespostaEntity
+                    {
+                        Sucesso = false,
+                        Mensagem = "Usuário não encontrado."
+                    });
+                }
+
+                var usuario = UsuarioDb.Usuarios.FirstOrDefault(u => u.LoginId == login.Id);
+                if (usuario == null)
+                {
+                    return NotFound(new RespostaEntity
+                    {
+                        Sucesso = false,
+                        Mensagem = "Dados do usuário não encontrados."
+                    });
+                }
+
+                var novoToken = JwtUtils.GerarToken(nickname, usuario.Plano);
+
+                return Ok(new
+                {
+                    token = novoToken,
+                    nickname = nickname,
+                    plano = usuario.Plano,
+                    mensagem = "Token renovado com sucesso."
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao renovar token: {ex.Message}");
+                return BadRequest(new RespostaEntity
+                {
+                    Sucesso = false,
+                    Mensagem = "Erro interno ao renovar token."
+                });
+            }
+        }
+
     }
 }

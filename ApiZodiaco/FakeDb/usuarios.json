@@ -1,26 +1,42 @@
-[
+﻿[
   {
     "LoginId": "c13b3170-76d7-42c3-94c5-3913b650c244",
     "Nome": "joao",
     "Email": "joao@gmail.com",
-    "Plano": "Avançado",
+    "Plano": "Avan\u00E7ado",
     "Signo": "cancer",
     "DataNascimento": "2000-07-01T00:00:00"
   },
   {
     "LoginId": "9a790dbb-23a4-46e6-9de0-4bfbb61945d5",
-    "Nome": "tiago",
-    "Email": "tiagocometti@gmail.com",
-    "Plano": "Básico",
-    "Signo": "taurus",
-    "DataNascimento": "2025-05-07T00:00:00"
+    "Nome": "Tiago Cometti Lombardi",
+    "Email": "tiagocometti1868",
+    "Plano": "Avan\u00E7ado",
+    "Signo": "aries",
+    "DataNascimento": "2000-03-29T00:00:00"
   },
   {
     "LoginId": "dda72b2a-fd45-4f42-a5c7-0894616ca5ad",
     "Nome": "joao",
     "Email": "joao@gmail.com",
-    "Plano": "Avançado",
+    "Plano": "Avan\u00E7ado",
     "Signo": "capricorn",
     "DataNascimento": "2000-01-01T00:00:00"
+  },
+  {
+    "LoginId": "181337eb-5908-4631-afcd-9b57ee3fe937",
+    "Nome": "fds",
+    "Email": "fds",
+    "Plano": "Basico",
+    "Signo": "gemini",
+    "DataNascimento": "2025-05-21T00:00:00"
+  },
+  {
+    "LoginId": "9419e3c1-cdcc-4008-a405-0c4d767e8392",
+    "Nome": "dasdsad",
+    "Email": "dsadsadas",
+    "Plano": "Avancado",
+    "Signo": "virgo",
+    "DataNascimento": "2020-09-10T00:00:00"
   }
 ]
